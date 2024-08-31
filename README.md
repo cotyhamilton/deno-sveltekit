@@ -56,8 +56,25 @@ DENO_FUTURE=1 deno run -REN --no-lock build/mod.ts
 
 ## deploy
 
+Create project on [deno deploy](https://dash.deno.com/projects) and link repo
+
+Svelte will be automatically selected as the framework preset
+
+Open advanced settings
+
+- Set "Install Step" to `DENO_FUTURE=1 deno install`
+- Set "Build Step" to `DENO_FUTURE=1 deno task build`
+- Set "Root directory" to `build`
+- Set "Entrypoint" to `mod.ts`
+
+Alternatively, deploy from the command line:
+
 ```bash
 DENO_FUTURE=1 deno task build
 cd build
-deployctl deploy --entrypoint=mod.ts
+deployctl deploy --project=<project-name> --entrypoint=mod.ts
 ```
+
+## Example
+
+https://deno-sveltekit-example.deno.dev
