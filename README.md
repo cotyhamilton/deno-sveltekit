@@ -75,6 +75,9 @@ cd build
 deployctl deploy --project=<project-name> --entrypoint=mod.ts
 ```
 
-## Example
+## live example
 
 https://deno-sveltekit-example.deno.dev
+
+> [!WARNING]
+> I haven't yet tested with production dependencies, neither npm nor jsr
