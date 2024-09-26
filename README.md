@@ -5,10 +5,12 @@
 ```bash
 deno run -A npm:create-svelte@latest my-app
 cd my-app
-deno types > src/deno.d.ts
+deno add npm:@types/deno
 ```
 
 ## replace adapter
+
+> ⚠️ Soon this won't be needed, follow [this issue](https://github.com/denoland/deno/issues/17248) for updates
 
 I like [sveltekit-adapter-deno](https://github.com/dbushell/sveltekit-adapter-deno)
 
@@ -48,10 +50,8 @@ DENO_FUTURE=1 deno task build
 
 Run production server
 
-> ⚠️ `--no-lock` is required until deno deploy supports latest version of lockfile
-
 ```bash
-DENO_FUTURE=1 deno run -REN --no-lock build/mod.ts
+deno run -REN build/mod.ts
 ```
 
 ## deploy
@@ -78,6 +78,3 @@ deployctl deploy --project=<project-name> --entrypoint=mod.ts
 ## live example
 
 https://deno-sveltekit-example.deno.dev
-
-> [!WARNING]
-> I haven't yet tested with production dependencies, neither npm nor jsr
