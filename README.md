@@ -3,7 +3,7 @@
 ## create project
 
 ```bash
-deno run -A npm:create-svelte@latest my-app
+deno run -A npm:sv@latest create my-app
 cd my-app
 deno add npm:@types/deno
 ```
@@ -33,19 +33,19 @@ Update `svelte.config.js`
 Install dependencies
 
 ```bash
-DENO_FUTURE=1 deno install
+deno install
 ```
 
 Run the dev server
 
 ```bash
-DENO_FUTURE=1 deno task dev
+deno task dev
 ```
 
 ## build
 
 ```bash
-DENO_FUTURE=1 deno task build
+deno task build
 ```
 
 Run production server
@@ -62,15 +62,15 @@ Svelte will be automatically selected as the framework preset
 
 Open advanced settings
 
-- Set "Install Step" to `DENO_FUTURE=1 deno install`
-- Set "Build Step" to `DENO_FUTURE=1 deno task build`
+- Set "Install Step" to `deno install`
+- Set "Build Step" to `deno task build`
 - Set "Root directory" to `build`
 - Set "Entrypoint" to `mod.ts`
 
 Alternatively, deploy from the command line:
 
 ```bash
-DENO_FUTURE=1 deno task build
+deno task build
 cd build
 deployctl deploy --project=<project-name> --entrypoint=mod.ts
 ```
