@@ -5,27 +5,17 @@
 ```bash
 deno run -A npm:sv@latest create my-app
 cd my-app
-deno add npm:@types/deno
-```
-
-## replace adapter
-
-> ⚠️ Soon this won't be needed, follow [this issue](https://github.com/denoland/deno/issues/17248) for updates
-
-I like [sveltekit-adapter-deno](https://github.com/dbushell/sveltekit-adapter-deno)
-
-The rest of the instructions are tailored to using this adapter, adjust as needed if you choose differently.
-
-```bash
+deno install
+deno fmt
+deno add --dev npm:@types/deno npm:@sveltejs/adapter-node
 deno remove @sveltejs/adapter-auto
-deno add npm:sveltekit-adapter-deno
 ```
 
 Update `svelte.config.js`
 
 ```diff
-- import adapter from '@sveltejs/adapter-auto';
-+ import adapter from 'sveltekit-adapter-deno';
+- import adapter from "@sveltejs/adapter-auto";
++ import adapter from "@sveltejs/adapter-node";
 ```
 
 ## develop
@@ -48,10 +38,16 @@ deno task dev
 deno task build
 ```
 
+Preview the production build
+
+```bash
+deno task preview
+```
+
 Run production server
 
 ```bash
-deno run -REN build/mod.ts
+deno run -A build/index.js
 ```
 
 ## deploy
