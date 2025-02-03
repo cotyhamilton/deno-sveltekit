@@ -33,5 +33,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "deno-sveltekit-example"
-          entrypoint: "mod.ts"
+          entrypoint: "index.js"
           root: "build"
