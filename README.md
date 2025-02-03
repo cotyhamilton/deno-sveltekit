@@ -47,7 +47,7 @@ deno task preview
 Run production server
 
 ```bash
-deno run -A build/index.js
+deno run -REN build/index.js
 ```
 
 ## deploy
@@ -61,14 +61,14 @@ Open advanced settings
 - Set "Install Step" to `deno install`
 - Set "Build Step" to `deno task build`
 - Set "Root directory" to `build`
-- Set "Entrypoint" to `mod.ts`
+- Set "Entrypoint" to `index.js`
 
 Alternatively, deploy from the command line:
 
 ```bash
 deno task build
 cd build
-deployctl deploy --project=<project-name> --entrypoint=mod.ts
+deployctl deploy --project=<project-name> --entrypoint=index.js
 ```
 
 ## live example
