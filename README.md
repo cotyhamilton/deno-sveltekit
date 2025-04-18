@@ -1,21 +1,23 @@
 # deno sveltekit
 
+This repo used to serve as a proof of concept and documentation for any custom
+requirements for running sveltekit with deno. There are no longer any major
+issues, and you may just follow the prompts of the `sv` cli to create a new
+project.
+
 ## create project
 
 ```bash
 deno run -A npm:sv@latest create my-app
-cd my-app
-deno install
-deno fmt
-deno add --dev npm:@types/deno npm:@sveltejs/adapter-node
-deno remove @sveltejs/adapter-auto
 ```
 
-Update `svelte.config.js`
+In the tools prompt select `sveltekit-adapter` and either `node` or `static`
 
-```diff
-- import adapter from "@sveltejs/adapter-auto";
-+ import adapter from "@sveltejs/adapter-node";
+For package manager select `deno`
+
+```bash
+cd my-app
+deno install
 ```
 
 ## develop
@@ -48,6 +50,18 @@ Run production server
 
 ```bash
 deno run -REN build/index.js
+```
+
+## docker
+
+There is a basic `Dockerfile` included in the repo.
+
+```bash
+docker build -t my-app .
+docker run -p 3000:3000 my-app
+
+# or for a custom port
+docker run --env PORT=5001 -p 5001:5001 my-app
 ```
 
 ## deploy
